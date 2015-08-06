@@ -1,43 +1,45 @@
 package siemens.plm.supermarket_kata.tests;
 
 import static org.junit.Assert.*;
-
-import java.util.Iterator;
-
 import org.junit.Test;
-
 import siemens.plm.supermarket_kata.Basket;
-
 public class BasketTests {
 
 	@Test
-	public void testBasket1() {
+	public void givenAnEmptyBasket_CountShouldBeZero() {
 		Basket b = new Basket();
 		assertEquals(0, b.count());
 	}
 
 	@Test
-	public void testBasket2() {
-		Basket b = new Basket();
-		assertEquals(b.count(), 0);
-		b.add("TinOfBeans");
-		b.add("Coleslaw");
-		b.add("TinOfBeans");
-		assertEquals(b.count(), 3);
-		Iterator<String> i = b.iterator();
-		for (int ii = 0; ii < 3; ++ii)
+	public void givenThreeItemsAreAddedToBasket_WhenCounted_BasketShouldContainThreeItems() {
+		Basket basket = new Basket();
+		basket.add("TinOfBeans");
+		basket.add("Coleslaw");
+		basket.add("TinOfBeans");
+		assertEquals(basket.count(), 3);
+	}
+	
+	@Test
+	public void givenThreeItemsAreAddedToBasket_WhenExamined_BasketShouldContainTheAddedItems() {
+		// Given
+		Basket basket = new Basket();
+		basket.add("TinOfBeans");
+		basket.add("Coleslaw");
+		basket.add("TinOfBeans");
+		
+		// When
+		StringBuilder basketContentsStringBuilder = new StringBuilder();
+		for (String item: basket)
 		{
-			String next = i.next();
-			switch(ii)
-			{
-	        case 0:
-	        case 2:
-	            assertEquals(next, "TinOfBeans");
-	            break;
-	        case 1:
-	            assertEquals(next, "Coleslaw");
-			}
+			basketContentsStringBuilder.append(basketContentsStringBuilder.length() == 0 ? "" : ", ");
+			basketContentsStringBuilder.append(item);
 		}
+		String basketContents = basketContentsStringBuilder.toString();
+		
+		// Then
+		String expectedContents = "TinOfBeans, Coleslaw, TinOfBeans";
+		assertEquals(expectedContents, basketContents);
 	}
 	
 }
