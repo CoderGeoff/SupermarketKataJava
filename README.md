@@ -12,6 +12,7 @@ Coleslaw | 50p
 Bag of Roman salad | £1.50
 Bag of Spring Fresh salad | £1.50
 
+First clone the repository, build and run the tests in Eclipse.
 Now change the function to support the following needs:
 
 1. Look at PriceListTests. There are tests for four items. Write tests for the remaining two. 
