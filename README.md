@@ -13,6 +13,7 @@ Bag of Roman salad | £1.50
 Bag of Spring Fresh salad | £1.50
 
 Now change the function to support the following needs:
+
 1. Look at PriceListTests. There are tests for four items. Write tests for the remaining two. 
 2. write a function that, given a basket of goods, returns the sum to be paid at the checkout.
 Use the following prices:2.	The supermarket is offering a 1/3 reduction on coleslaw. 
